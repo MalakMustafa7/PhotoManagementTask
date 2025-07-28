@@ -1,4 +1,3 @@
-import javax.xml.stream.Location;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -23,13 +22,13 @@ public class Photo {
    }
 
    public String getTitle(){
-       return title;
+       return title.toLowerCase();
    }
    public LocalDate getDate(){
        return date;
    }
    public String getLocation(){
-       return location;
+       return location.toLowerCase();
    }
    public Set<String> getTags(){
        return tags;
@@ -40,3 +39,4 @@ public class Photo {
         return "photoId:"+id+ ", Title:"+ title +", Location:"+ location + ", TakenDate: "+date;
     }
 }
+
