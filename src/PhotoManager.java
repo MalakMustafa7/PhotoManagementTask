@@ -38,9 +38,7 @@ public class PhotoManager {
          }
          return res;
     }
-
-
 }
 
 
-}
+
