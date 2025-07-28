@@ -16,28 +16,31 @@ public class PhotoManager {
           dateMap.computeIfAbsent(photo.getDate(),d->new ArrayList<>()).add(photo);
           locationMap.computeIfAbsent(photo.getLocation(), l->new ArrayList<>()).add(photo);
           for(String tag: photo.getTags()){
-              tagMap.computeIfAbsent(tag,t->new ArrayList<>()).add(photo);
+              tagMap.computeIfAbsent(tag.toLowerCase(),t->new ArrayList<>()).add(photo);
           }
     }
     public List<Photo> searchByDate(LocalDate date){
         return dateMap.get(date);
     }
     public List<Photo> searchByLocation(String location){
-        return locationMap.get(location);
+        return locationMap.get(location.toLowerCase());
     }
     public List<Photo> searchByTag(String tag){
-        return tagMap.get(tag);
+        return tagMap.get(tag.toLowerCase());
     }
     public List<Photo> searchByMultipleTags(Set<String> tags){
         List<Photo> res = new ArrayList<>();
          for (String tag:tags){
              if(res.isEmpty()){
-                 res = tagMap.get(tag);
+                 res = tagMap.get(tag.toLowerCase());
              }
-              res.retainAll(tagMap.get(tag));
+              res.retainAll(tagMap.get(tag.toLowerCase()));
          }
          return res;
     }
+
+
+}
 
 
 }
