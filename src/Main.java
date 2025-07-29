@@ -17,21 +17,30 @@ public class Main {
         manager.uploadPhoto(new Photo("4", "museum.jpg", LocalDate.of(2023, 5, 15),
                 "Cairo", Set.of("museum", "antiquities", "egypt", "pharaohs")));
 
+        manager.uploadPhoto(new Photo("5","cairoTower.jpg",LocalDate.of(2024, 5, 15),
+                            "Cairo",Set.of("tower","architecture" , "egypt"),30.0444, 31.2357));
 
         // Search by single tag
         System.out.println("Photos with tag 'egypt':");
         manager.searchByTag("egypt").forEach(System.out::println);
+        System.out.println("=======================");
 
         // Search by date
         System.out.println("Photos taken on 2023-04-22:");
         manager.searchByDate(LocalDate.of(2023, 4, 22)).forEach(System.out::println);
+        System.out.println("=======================");
         // Search by location
         System.out.println("Photos taken in Cairo:");
         manager.searchByLocation("Cairo").forEach(System.out::println);
+        System.out.println("=======================");
 
         // Search by multiple tags
         System.out.println("Photos with tags [egypt, museum]:");
         manager.searchByMultipleTags(Set.of("egypt", "museum")).forEach(System.out::println);
+        System.out.println("=======================");
 
+        // Search by coordinates
+        System.out.println("Photos with coordinates");
+        manager.searchByCoordinates(30.0444,31.2357,50).forEach(System.out::println);
     }
 }
