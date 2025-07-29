@@ -12,6 +12,7 @@ Date
 Location name
 
 Multiple tags
+Coordinates
 
 The system uses Java Collections Framework for efficient indexing and searching.
 
@@ -19,7 +20,8 @@ The system uses Java Collections Framework for efficient indexing and searching.
 
 Below is a sample output from the application:
 
-![Output Screenshot](https://github.com/MalakMustafa7/PhotoManagementTask/blob/main/photo_2025-07-28_16-12-05.jpg?raw=true)
+![Output Screenshot](https://github.com/MalakMustafa7/PhotoManagementTask/raw/main/Screenshot%20(167).png)
+
 
 
 
