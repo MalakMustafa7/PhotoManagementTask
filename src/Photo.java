@@ -6,6 +6,8 @@ public class Photo {
    private String title;
    private LocalDate date;
    private String location;
+   private double latitude;
+   private double longitude;
    private Set<String> tags;
 
    public Photo(String id , String title,LocalDate date,String location, Set<String> tags){
@@ -16,6 +18,11 @@ public class Photo {
        this.tags = tags;
 
    }
+    public Photo(String id , String title,LocalDate date,String location, Set<String> tags,double latitude,double longitude){
+       this(id, title, date, location, tags);
+       this.latitude = latitude;
+       this.longitude = longitude;
+    }
 
    public String getId(){
        return id;
@@ -30,6 +37,12 @@ public class Photo {
    public String getLocation(){
        return location.toLowerCase();
    }
+   public double getLatitude(){
+       return  latitude;
+   }
+   public double getLongitude(){
+       return longitude;
+   }
    public Set<String> getTags(){
        return tags;
    }
@@ -39,4 +52,3 @@ public class Photo {
         return "photoId:"+id+ ", Title:"+ title +", Location:"+ location + ", TakenDate: "+date;
     }
 }
-
