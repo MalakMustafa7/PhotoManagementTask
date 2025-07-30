@@ -20,21 +20,25 @@ public class PhotoManager {
           }
     }
     public List<Photo> searchByDate(LocalDate date){
-        return dateMap.get(date);
+        return dateMap.getOrDefault(date,new ArrayList<>());
     }
     public List<Photo> searchByLocation(String location){
-        return locationMap.get(location.toLowerCase());
+        return locationMap.getOrDefault(location.toLowerCase(),new ArrayList<>());
     }
     public List<Photo> searchByTag(String tag){
-        return tagMap.get(tag.toLowerCase());
+        return tagMap.getOrDefault(tag.toLowerCase(),new ArrayList<>());
     }
     public List<Photo> searchByMultipleTags(Set<String> tags){
         List<Photo> res = new ArrayList<>();
          for (String tag:tags){
-             if(res.isEmpty()){
-                 res = tagMap.get(tag.toLowerCase());
+             List<Photo> tagPhotos = tagMap.get(tag.toLowerCase());
+              if(tagPhotos == null) return  new ArrayList<>();
+             if(res.isEmpty()) {
+                 res = new ArrayList<>(tagPhotos);
+             }else {
+                 res.retainAll(tagPhotos);
              }
-              res.retainAll(tagMap.get(tag.toLowerCase()));
+             if (res.isEmpty()) break;
          }
          return res;
     }
